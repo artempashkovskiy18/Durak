@@ -24,7 +24,7 @@ namespace Durak.UI
 
         private void HandleClick(object sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            
         }
 
         public int CompareTo(CardPictureBox other)

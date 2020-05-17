@@ -45,13 +45,25 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Cards\CardDeck.cs" />
-    <Compile Include="Player\Player.cs" />
+    <Compile Include="DurakGame.cs" />
     <Compile Include="Player\PlayerHand.cs" />
     <Compile Include="UI\CardPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\CardPictureBox.Designer.cs">
       <DependentUpon>CardPictureBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\PlayerPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\PlayerPanel.Designer.cs">
+      <DependentUpon>PlayerPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\TablePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\TablePanel.Designer.cs">
+      <DependentUpon>TablePanel.cs</DependentUpon>
     </Compile>
     <Compile Include="Util\Const.cs" />
     <Compile Include="Form1.cs">

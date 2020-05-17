@@ -9,39 +9,39 @@ namespace Durak
     {
 
         private static readonly List<int> SUITS = new List<int> {
-            Const.CardPictureBox.Suit.DIAMONDS,
-            Const.CardPictureBox.Suit.CLUBS,
-            Const.CardPictureBox.Suit.HEARTS,
-            Const.CardPictureBox.Suit.SPADES
+            Const.Card.Suit.DIAMONDS,
+            Const.Card.Suit.CLUBS,
+            Const.Card.Suit.HEARTS,
+            Const.Card.Suit.SPADES
         };
 
         private static readonly List<int> SMALL_SET_FIGURES = new List<int> {
-            Const.CardPictureBox.Figure.SIX,
-            Const.CardPictureBox.Figure.SEVEN,
-            Const.CardPictureBox.Figure.EIGHT,
-            Const.CardPictureBox.Figure.NINE,
-            Const.CardPictureBox.Figure.TEN,
-            Const.CardPictureBox.Figure.JACK,
-            Const.CardPictureBox.Figure.QUEEN,
-            Const.CardPictureBox.Figure.KING,
-            Const.CardPictureBox.Figure.ACE
+            Const.Card.Figure.SIX,
+            Const.Card.Figure.SEVEN,
+            Const.Card.Figure.EIGHT,
+            Const.Card.Figure.NINE,
+            Const.Card.Figure.TEN,
+            Const.Card.Figure.JACK,
+            Const.Card.Figure.QUEEN,
+            Const.Card.Figure.KING,
+            Const.Card.Figure.ACE
         };
 
         private static readonly List<int> LARGE_SET_FIGURES = new List<int>
         { 
-            Const.CardPictureBox.Figure.TWO,
-            Const.CardPictureBox.Figure.THREE,
-            Const.CardPictureBox.Figure.FOUR,
-            Const.CardPictureBox.Figure.FIVE,
-            Const.CardPictureBox.Figure.SIX,
-            Const.CardPictureBox.Figure.SEVEN,
-            Const.CardPictureBox.Figure.EIGHT,
-            Const.CardPictureBox.Figure.NINE,
-            Const.CardPictureBox.Figure.TEN,
-            Const.CardPictureBox.Figure.JACK,
-            Const.CardPictureBox.Figure.QUEEN,
-            Const.CardPictureBox.Figure.KING,
-            Const.CardPictureBox.Figure.ACE
+            Const.Card.Figure.TWO,
+            Const.Card.Figure.THREE,
+            Const.Card.Figure.FOUR,
+            Const.Card.Figure.FIVE,
+            Const.Card.Figure.SIX,
+            Const.Card.Figure.SEVEN,
+            Const.Card.Figure.EIGHT,
+            Const.Card.Figure.NINE,
+            Const.Card.Figure.TEN,
+            Const.Card.Figure.JACK,
+            Const.Card.Figure.QUEEN,
+            Const.Card.Figure.KING,
+            Const.Card.Figure.ACE
         };
 
         private static readonly Random RANDOM = new Random();
@@ -50,11 +50,11 @@ namespace Durak
 
         public CardPictureBox TrumpCard { get; private set; }
 
-        private CardDeck(List<int> fugureSet)
+        private CardDeck(List<int> figureSet)
         {
             cards = new List<CardPictureBox>();
 
-            foreach (var i in fugureSet)
+            foreach (var i in figureSet)
             {
                 foreach (var j in SUITS)
                 {
