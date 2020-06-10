@@ -13,7 +13,7 @@ namespace Durak.Util
 
             public static class Suit
             {
-                public const int DIAMONDS = 1;
+                public const int DIAMONDS = 1; 
                 public const int CLUBS = 2;
                 public const int HEARTS = 3;
                 public const int SPADES = 4;

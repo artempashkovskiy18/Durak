@@ -47,6 +47,12 @@
     <Compile Include="Cards\CardDeck.cs" />
     <Compile Include="DurakGame.cs" />
     <Compile Include="Player\PlayerHand.cs" />
+    <Compile Include="UI\ActiveCard.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\ActiveCard.Designer.cs">
+      <DependentUpon>ActiveCard.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\CardPictureBox.cs">
       <SubType>Component</SubType>
     </Compile>

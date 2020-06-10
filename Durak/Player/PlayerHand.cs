@@ -11,18 +11,20 @@ namespace Durak.Player
 
         private const int HAND_SIZE = 6;
 
-        private List<CardPictureBox> cards;
+        public List<CardPictureBox> cards;
 
         private CardDeck deck;
 
         public PlayerHand(CardDeck deck)
         {
             this.deck = deck;
+            cards = new List<CardPictureBox>();
         }
 
         public void TakeCards()
         {
-            if (cards.Count < HAND_SIZE) {
+            if (cards.Count < HAND_SIZE)
+            {
                 cards.AddRange(deck.Deal(HAND_SIZE - cards.Count));
                 Sort();
             }
@@ -39,10 +41,10 @@ namespace Durak.Player
             cards.Sort();
         }
 
-        public CardPictureBox UseCard(int index)
+        public CardPictureBox UseCard(CardPictureBox card)
         {
-            CardPictureBox card = cards[index];
-            cards.RemoveAt(index);
+            //CardPictureBox card = cards[index];
+            cards.Remove(card);
             return card;
         }
 

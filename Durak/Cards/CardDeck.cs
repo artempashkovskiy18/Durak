@@ -46,11 +46,26 @@ namespace Durak
 
         private static readonly Random RANDOM = new Random();
 
-        private List<CardPictureBox> cards;
-
+        public List<CardPictureBox> cards;
+        
         public CardPictureBox TrumpCard { get; private set; }
 
-        private CardDeck(List<int> figureSet)
+        public CardDeck()
+        {
+           
+        }
+
+        public void InitSmallSet(DurakGame durak)
+        {
+            InitDeck(SMALL_SET_FIGURES, durak);
+        }
+
+        public void InitLargeSet(DurakGame durak)
+        {
+            InitDeck(LARGE_SET_FIGURES, durak);
+        }
+
+        private void InitDeck(List<int> figureSet, DurakGame durak)
         {
             cards = new List<CardPictureBox>();
 
@@ -58,7 +73,7 @@ namespace Durak
             {
                 foreach (var j in SUITS)
                 {
-                    cards.Add(new CardPictureBox(i, j));
+                    cards.Add(new CardPictureBox(j, i, durak));
                 }
             }
 
@@ -76,16 +91,6 @@ namespace Durak
                 cards[rnd] = cards[i];
                 cards[i] = temp;
             }
-        }
-
-        public static CardDeck CreateSmallSet()
-        {
-            return new CardDeck(SMALL_SET_FIGURES);
-        }
-
-        public static CardDeck CreateLargeSet()
-        {
-            return new CardDeck(LARGE_SET_FIGURES);
         }
 
         public List<CardPictureBox> Deal(int amount)
