@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Windows.Forms;
 using Durak.UI;
 
 namespace Durak
@@ -29,8 +30,6 @@ namespace Durak
             DefendingPlayer = players[1];
             this.deck = deck;
             this.table = table;
-
-            Start();
         }
 
         public PlayerPanel NextPlayer(PlayerPanel CurrentPlayer)
@@ -54,14 +53,6 @@ namespace Durak
             return UtilPlayer;
         }
 
-        private void Start()
-        {
-            foreach(PlayerPanel p in players)
-            {
-                p.hand.TakeCards(deck.Deal(6));
-            }
-        } 
-
         private void Move()
         {
             if(ActiveCard.Card != null)
@@ -78,21 +69,26 @@ namespace Durak
                     {
                         if (DefendingPlayer.hand.cards.Count == 0)
                         {
-                            // Draw
+                            MessageBox.Show("draw");
                         }
                         else
                         {
-                            //Attacking player won
+                            MessageBox.Show(AttackingPlayer.Name + "won");
                         }
                     }
-                    ActivePlayer = AttackingPlayer;
+
+                    if(DefendingPlayer.isDefended == true)
+                    {
+                        ActivePlayer = AttackingPlayer;
+                        DefendingPlayer.isDefended = false;
+                    }
                 }
             }
         }
 
         public void MakeTurn()
         {
-            if (table.CountCards() < 12 )// || DefendingPlayer.isDefeated == false)
+            if (table.CountCards() < 12 )
             {
                 Move();
             }

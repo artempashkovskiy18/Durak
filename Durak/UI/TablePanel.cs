@@ -55,5 +55,22 @@ namespace Durak.UI
                 RemoveCard(c);
             }
         }
+
+        public void RemoveAllCards()
+        {
+            Controls.Clear();
+            addedCards.Clear();
+        }
+
+        public List<int> GetAllFigures()
+        {
+            List<int> t = new List<int>();
+            foreach(CardPictureBox c in addedCards)
+            {
+                t.Add(c.Figure);
+            }
+
+            return t;
+        }
     }
 }

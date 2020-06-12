@@ -23,7 +23,7 @@ namespace Durak.UI
             this.deck = deck;
             hand = new PlayerHand(deck);
             hand.TakeCards();
-            isDefeated = false;
+            isDefended = false;
             Name = name;
             DisplayCards();
         }
@@ -32,9 +32,9 @@ namespace Durak.UI
         private CardDeck deck; 
         public PlayerHand hand; 
         private TablePanel table; 
-        public bool isDefeated; 
+        public bool isDefended; 
 
-        private void DisplayCards()
+        public void DisplayCards()
         {
             for(int i = 0; i < hand.cards.Count; i++)
             {
@@ -53,14 +53,45 @@ namespace Durak.UI
                 if (ActiveCard.Card.Figure > attackingCard.Figure)
                 {
                     table.AddCard(hand.UseCard(ActiveCard.Card));
+                    isDefended = true;
                 }
             }
-            
+
+            if (ActiveCard.Card.Suit == deck.TrumpCard.Suit)
+            {
+                if (attackingCard.Suit != deck.TrumpCard.Suit)
+                {
+                    table.AddCard(hand.UseCard(ActiveCard.Card));
+                    isDefended = true;
+                }
+                else
+                {
+                    if (ActiveCard.Card.Figure > attackingCard.Figure)
+                    {
+                        table.AddCard(hand.UseCard(ActiveCard.Card));
+                        isDefended = true;
+                    }
+                }
+            }
         }
 
         public void Attack()
         {
-            table.AddCard(hand.UseCard(ActiveCard.Card));
+            if (table.CountCards() > 0)
+            {
+                foreach (var item in table.GetAllFigures())
+                {
+                
+                    if (ActiveCard.Card.Figure == item)
+                    {
+                        table.AddCard(hand.UseCard(ActiveCard.Card));
+                    }
+                }
+            }
+            else
+            {
+                table.AddCard(hand.UseCard(ActiveCard.Card));
+            }
         }
 
     }

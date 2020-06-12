@@ -23,9 +23,10 @@ namespace Durak.Player
 
         public void TakeCards()
         {
+            int a = HAND_SIZE - cards.Count;
             if (cards.Count < HAND_SIZE)
             {
-                cards.AddRange(deck.Deal(HAND_SIZE - cards.Count));
+                cards.AddRange(deck.Deal(a));
                 Sort();
             }
         }
@@ -43,7 +44,6 @@ namespace Durak.Player
 
         public CardPictureBox UseCard(CardPictureBox card)
         {
-            //CardPictureBox card = cards[index];
             cards.Remove(card);
             return card;
         }
